@@ -27,7 +27,7 @@ const posts = [
   {
     id: 2,
     author: {
-      avatarUrl: 'https://github.com/janedoe.png',
+      avatarUrl: 'https://ui-avatars.com/api/?name=Jane+Doe&background=random',
       name: 'Jane Doe',
       role: 'Frontend Developer'
     },
@@ -41,7 +41,7 @@ const posts = [
   {
     id: 3,
     author: {
-      avatarUrl: 'https://github.com/johndoe.png',
+      avatarUrl: 'https://ui-avatars.com/api/?name=John+Doe&background=random',
       name: 'John Doe',
       role: 'Backend Engineer'
     },
@@ -55,7 +55,7 @@ const posts = [
   {
     id: 4,
     author: {
-      avatarUrl: 'https://github.com/sarasmith.png',
+      avatarUrl: 'https://ui-avatars.com/api/?name=Sara+Smith&background=random',
       name: 'Sara Smith',
       role: 'UI/UX Designer'
     },
@@ -69,7 +69,7 @@ const posts = [
   {
     id: 5,
     author: {
-      avatarUrl: 'https://github.com/robert.png',
+      avatarUrl: 'https://ui-avatars.com/api/?name=Robert+Brown&background=random',
       name: 'Robert Brown',
       role: 'Mobile Developer'
     },
@@ -81,6 +81,7 @@ const posts = [
     publishedAt: new Date('2024-12-01 00:00:00')
   }
 ];
+
 
 export function App() {
   return (
