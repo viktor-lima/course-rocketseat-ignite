@@ -14,24 +14,25 @@ export function Post({ author, publishedAt, content}){
   const [comments, setComments] = useState([
     'new post, very cool!'
   ]);
-  const [newCommentText, setNewCommentText] = useState('')
+  const [newCommentText, setNewCommentText] = useState('');
 
   const publishedDateFormat = format(publishedAt, "dd 'de' LLL 'às' HH:mm'h'", {
     locale: ptBr
-  })
+  });
   const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
     locale: ptBr
-  })
+  });
 
   const handleCreateNewComment = () => {
     event.preventDefault();
     setComments([...comments, newCommentText]);
     setNewCommentText('');
-  }
+  };
 
   const handleNewCommentChange = () => {
+    event.target.setCustomValidity('')
     setNewCommentText(event.target.value);
-  }
+  };
 
   const deleteComment = (commentToDelete) => {
     //imutabilidade => as coisas não sofrem mutação, nós criamos um novo valor (um novo espaço na memória)
@@ -39,7 +40,13 @@ export function Post({ author, publishedAt, content}){
       return comment !== commentToDelete
     })
     setComments(commentsWithoutDeleteOne);
-  }
+  };
+
+  const handleNewCommentInvalid = () => {
+    event.target.setCustomValidity('Esse campo é obrigatório')
+  };
+
+  const isNewCommentEmpty = (newCommentText.length === 0);
 
   return (
     <article className={styles.post}>
@@ -79,10 +86,12 @@ export function Post({ author, publishedAt, content}){
             handleNewCommentChange
           }
           value={newCommentText}
+          required
+          onInvalid={handleNewCommentInvalid}
         />
 
         <footer>
-          <button type="submit">Publicar</button>  
+          <button type="submit"  disabled={isNewCommentEmpty}>Publicar</button>  
         </footer>
       </form>
 
